@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <!-- 控制台输出 -->
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder charset="UTF-8" class="com.yunda.htmlsnap.log.LogBackExEncoder">
+      <pattern>[HtmlSnap] %date [%T] %-5level (%logger{80}.%method:%line - %msg%n</pattern>
+    </encoder>
+  </appender>
+	<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/tmp/logs/htmlsnapshot.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/tmp/logs/htmlsnapshot.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<MaxHistory>15</MaxHistory>
+		</rollingPolicy>
+    <encoder class="com.yunda.htmlsnap.log.LogBackExEncoder"> 
+      <pattern>[HtmlSnap] %date [%T] %-5level (%logger{80}.%method:%line - %msg%n</pattern>
+    </encoder>
+	</appender>
+
+	<!-- project default level -->
+	<logger name="com.yunda.htmlsnap" level="INFO" />
+
+	<!--log4jdbc -->
+	<logger name="jdbc.sqltiming" level="INFO"/>
+
+	<root level="INFO">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="rollingFile" />
+	</root>
+</configuration>
