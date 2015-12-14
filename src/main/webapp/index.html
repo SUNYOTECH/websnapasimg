@@ -292,9 +292,10 @@ img {
 </head>
 <body>
 <h1 id="-">网页生成图片快照</h1>
+<img src="static/images/shiyitu.png" alt="" />
 <h2 id="-">调用</h2>
 <h4 id="-">请求地址</h4>
-<p>测试环境：<a href="http://IP:PORT/htmlsnapshot/snaphtml">http://IP:PORT/htmlsnapshot/snaphtml</a><br>UAT环境： <a href="http://IP:PORT/htmlsnapshot/snaphtml">http://IP:PORT/htmlsnapshot/snaphtml</a><br>调用方式 <code>GET</code></p>
+<p>测试环境：<a href="http://10.19.105.156:7090/htmlsnapshot/snaphtml">http://10.19.105.156:7090/htmlsnapshot/snaphtml</a><br>UAT环境： <a href="http://10.19.106.221:8082/htmlsnapshot/snaphtml">http://10.19.106.221:8082/htmlsnapshot/snaphtml</a><br>调用方式 <code>GET</code></p>
 <table>
 <thead>
 <tr>
@@ -351,7 +352,20 @@ try {
         e.printStackTrace();
     }
 }</code></pre>
-
+<h2 id="-">测试</h2>
+<textarea rows="3" name='url' style="width: 100%" id='testUrl' >
+</textarea>
+<label>请输入完整的url地址，然后单击测试按钮</label>
+<input type="button" value="测试"  style="width: 100px" onclick="testUrl()"/>
+<iframe id="testIframe" height="830" width="100%" scrolling="auto" src="#">
+</iframe>
+<script type="text/javascript">
+	function testUrl(){
+		var testUrl = document.getElementById("testUrl").value;
+		var testIframe = document.getElementById("testIframe");
+		var url ="snaphtml?htmlUrl="+testUrl+"&imgType=png&now="+new Date();
+		testIframe.src=url;
+	}
+</script>
 </body>
 </html>
-<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

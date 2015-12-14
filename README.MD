@@ -1,9 +1,16 @@
 #网页生成图片快照#
+使用的核心开源项目：
+|包名|版本|
+|--|--|
+|DJNativeSwing|1.0.3|
+|DJNativeSwing-SWT|1.0.3|
+|org.eclipse.swt.win32.win32.x86_64|4.3|
+
 ![](http://i.imgur.com/c6WnHai.png)
 ##调用
 ####请求地址
 测试环境：http://IP:PORT/htmlsnapshot/snaphtml
-UAT环境： http://IP:PORT/htmlsnapshot/snaphtml
+
 调用方式 `GET`
  
 |参数名|说明|

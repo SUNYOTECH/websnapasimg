@@ -124,6 +124,17 @@ public class HtmlCaptureUtil {
 //				fileName = System.currentTimeMillis() + ".png";
 				//webBrowser.navigate("http://10.19.105.164:7030/eos-governor/governor/user/login.jsp");
 				webBrowser.addWebBrowserListener(new WebBrowserAdapter() {
+					
+					@Override
+					public void statusChanged(WebBrowserEvent e) {
+						super.statusChanged(e);
+						System.out.println("jsenable:"+e.getWebBrowser().isJavascriptEnabled());
+						System.out.println("stattext:"+e.getWebBrowser().getStatusText());
+						String result = (String) webBrowser
+								.executeJavascriptWithResult(jsDimension.toString());
+						System.out.println("ss-result:"+result);
+					}
+
 					// 监听加载进度
 					public void loadingProgressChanged(WebBrowserEvent e) {
 						// 当加载完毕时
@@ -134,6 +145,7 @@ public class HtmlCaptureUtil {
 //							fileName = System.currentTimeMillis() + ".png";
 							String result = (String) webBrowser
 									.executeJavascriptWithResult(jsDimension.toString());
+							System.out.println("result:"+result);
 							int index = result == null ? -1 : result.indexOf(":");
 							NativeComponent nativeComponent = webBrowser
 									.getNativeComponent();
