@@ -23,7 +23,7 @@
  
 ````java
 HttpClient client = new HttpClient();
-HttpMethod get = new GetMethod("http://localhost:8081/htmlsnapshot/snaphtml?htmlUrl=http%3A%2F%2Fsoa2.yundasys.com%3A8080%2Fydmobile%2Fbpsfinance%2Fzhengzhaosy%2F15346handler57090mbtmp.shtml&imgType=png");
+HttpMethod get = new GetMethod("http://localhost:8081/htmlsnapshot/snaphtml?htmlUrl=http://www.baidu.com&imgType=png");
 int status = -1 ;
 try {
     status = client.executeMethod(get);
